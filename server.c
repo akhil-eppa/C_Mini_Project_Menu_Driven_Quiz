@@ -60,7 +60,22 @@ void add_score(int *q)//Pointer variable is passed that holds location to variab
 
 }
 
-
+void save_score(int a)
+{
+    FILE *fp;
+    fp=fopen("score.txt","a");
+    fprintf(fp,"->%d\n",a);
+	char ch;
+	fclose(fp);
+	fp=fopen("score.txt","r");
+	ch=fgetc(fp);
+	while (ch!=EOF)
+	{
+	printf("%c",ch);
+	ch=fgetc(fp);
+	}
+    fclose(fp);
+}
 
 void Tech_Quiz()
 
@@ -107,7 +122,7 @@ void Tech_Quiz()
 	}
 
 	printf("\n----------||Your Score: %d||-----------\n",score);
-
+    save_score(score);
 }
 
 
@@ -156,7 +171,7 @@ void Sports_Quiz()
 	}
 
 	printf("\n----------||Your Score: %d||-----------\n",score);
-
+    save_score(score);
 
 }
 
@@ -205,7 +220,7 @@ struct ques x[5]={{"Which battle was fought between Maharana Pratap and Akbar",1
 	}
 
 	printf("\n----------||Your Score: %d||-----------\n",score);
-
+    save_score(score);
 
 }
 
@@ -254,23 +269,9 @@ struct ques x[5]={{"For which movie did Leonardo DiCaprio win an Oscar for ?",3,
 	}
 
 	printf("\n----------||Your Score: %d||-----------\n",score);
-
+    save_score(score);
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 void quiz()
 
@@ -303,5 +304,5 @@ void quiz()
     else
 
         Movies_Quiz();
-
+ 
 }
