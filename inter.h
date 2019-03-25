@@ -16,5 +16,6 @@ void Movies_Quiz();
 void accept_ans(int *n);
 int check_ans(int x,struct ques* a);
 void add_score(int *q);
+void save_score(int a);
 void quiz();
 
